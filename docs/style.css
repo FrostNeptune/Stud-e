@@ -1,17 +1,17 @@
 * {
   box-sizing: border-box;
-  font Arial, sans-serif;
+  font-family: Arial, sans-serif;
 }
 
-body {
+body.top-banner h1 {body {
   margin: 0;
-  background: #f4f6f8;
+  font-size: 20px;
 }
 
 /* App layout */
 .app {
   display: flex;
-  height: 100vh;
+  height: calc(100vh - 48px);
 }
 
 /* Sidebar */
@@ -19,11 +19,14 @@ body {
   width: 220px;
   background: #1e293b;
   color: white;
-  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
-.logo {
-  margin-bottom: 20px;
+/* Navigation */
+.nav {
+  padding: 16px;
 }
 
 .nav-btn {
@@ -43,6 +46,28 @@ body {
   border-radius: 4px;
 }
 
+/* Toolbox */
+.toolbox {
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.tool-btn {
+  font-size: 20px;
+  padding: 10px;
+  background: #334155;
+  border: none;
+  border-radius: 6px;
+  color: white;
+  cursor: pointer;
+}
+
+.tool-btn.active {
+  background: #2563eb;
+}
+
 /* Main area */
 .main {
   flex: 1;
@@ -50,21 +75,16 @@ body {
   flex-direction: column;
 }
 
-/* Control bar */
 .control-bar {
-  background: white;
   padding: 10px 16px;
+  background: white;
   border-bottom: 1px solid #ddd;
-  display: flex;
-  gap: 16px;
-  align-items: center;
 }
 
 /* Tabs */
 .tab {
   display: none;
   padding: 20px;
-  overflow: auto;
 }
 
 .tab.active {
@@ -73,10 +93,10 @@ body {
 
 /* Workspace */
 .canvas {
-  background: #fff;
-  min-height: 400px;
-  padding: 20px;
   position: relative;
+  background: white;
+  padding: 20px;
+  min-height: 400px;
 }
 
 .card {
@@ -93,4 +113,14 @@ body {
   background: rgba(37, 99, 235, 0.15);
   pointer-events: none;
 }
-``
+  margin: 0;
+  background: #f4f6f8;
+}
+
+/* Top Banner */
+.top-banner {
+  background: #0f172a;
+  color: white;
+  padding: 12px 20px;
+}
+

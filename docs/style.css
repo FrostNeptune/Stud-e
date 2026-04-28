@@ -1,20 +1,39 @@
 * {
-  box-sizing: border-box;
+ -sizing: border-box;
   font-family: Arial, sans-serif;
 }
 
-body.top-banner h1 {body {
+html, body {
+  height: 100%;
   margin: 0;
-  font-size: 20px;
+  background: #f4f6f8;
 }
 
-/* App layout */
+/* ===== Top Banner ===== */
+.top-banner {
+  background: linear-gradient(90deg, #0f172a, #020617);
+  color: white;
+  height: 64px;                 /* ✅ proper app-header height */
+  padding: 0 24px;
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid #1e293b;
+}
+
+.top-banner h1 {
+  margin: 0;
+  font-size: 22px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+/* ===== Layout ===== */
 .app {
   display: flex;
-  height: calc(100vh - 48px);
+  height: calc(100vh - 64px);
 }
 
-/* Sidebar */
+/* ===== Sidebar ===== */
 .sidebar {
   width: 220px;
   background: #1e293b;
@@ -30,7 +49,6 @@ body.top-banner h1 {body {
 }
 
 .nav-btn {
-  display: block;
   width: 100%;
   margin-bottom: 8px;
   padding: 10px;
@@ -68,7 +86,7 @@ body.top-banner h1 {body {
   background: #2563eb;
 }
 
-/* Main area */
+/* ===== Main Area ===== */
 .main {
   flex: 1;
   display: flex;
@@ -106,21 +124,10 @@ body.top-banner h1 {body {
   background: #f9fafb;
 }
 
-/* Selection overlay */
+/* Selection Overlay */
 .selection-box {
   position: absolute;
   border: 2px dashed #2563eb;
   background: rgba(37, 99, 235, 0.15);
   pointer-events: none;
 }
-  margin: 0;
-  background: #f4f6f8;
-}
-
-/* Top Banner */
-.top-banner {
-  background: #0f172a;
-  color: white;
-  padding: 12px 20px;
-}
-

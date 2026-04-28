@@ -3,46 +3,35 @@
 <head>
   <meta charset="UTF-8" />
   <title>Stud‑E</title>
-  style.css
+  <link rel="stylesheet" href="style.css" />
 </head>
+
 <body>
 
-<!-- Top Banner -->
 <header class="top-banner">
   <h1>Stud‑E</h1>
 </header>
 
 <div class="app">
 
-  <!-- Left Sidebar -->
   <aside class="sidebar">
-
-    <!-- Navigation -->
     <nav class="nav">
       <button class="nav-btn active" data-tab="dashboard">Dashboard</button>
       <button class="nav-btn" data-tab="workspace">Workspace</button>
       <button class="nav-btn" data-tab="about">About</button>
     </nav>
 
-    <!-- Tool Icons -->
     <div class="toolbox">
-      <button class="tool-btn active" id="selectTool" title="Selection Tool">
-        🔲
-      </button>
-      <button class="tool-btn" title="Print (coming soon)">
-        🖨
-      </button>
+      <button class="tool-btn active" id="selectTool" title="Selection Tool">🔲</button>
+      <button class="tool-btn" title="Print">🖨</button>
     </div>
   </aside>
 
-  <!-- Main Content -->
   <main class="main">
-
     <div class="control-bar">
       <span id="info">Selection inactive</span>
     </div>
 
-    <!-- Tabs -->
     <section class="tab active" id="dashboard">
       <h2>Dashboard</h2>
       <p>Use the Workspace to select and annotate areas.</p>
@@ -50,7 +39,6 @@
 
     <section class="tab" id="workspace">
       <h2>Workspace</h2>
-
       <div class="canvas" id="canvas">
         <div class="card">Sample Content Box</div>
         <div class="card">Another Element</div>
@@ -62,10 +50,10 @@
       <h2>About</h2>
       <p>Stud‑E is a foundation for visual selection and annotation tools.</p>
     </section>
-
   </main>
+
 </div>
 
-script.js
+<script src="script.js"></script>
 </body>
 </html>

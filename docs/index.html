@@ -52,8 +52,59 @@
     </section>
   </main>
 
+<!-- Right Details Pane -->
+<aside class="details-pane" id="detailsPane">
+  <h3>Selection Details</h3>
+
+  <div class="preview-container">
+    <canvas id="previewCanvas"></canvas>
+  </div>
+
+  <div class="field">
+    <label>Top‑Left (x, y)</label>
+    <input id="coordTL" readonly />
+  </div>
+
+  <div class="field">
+    <label>Top‑Right (x, y)</label>
+    <input id="coordTR" readonly />
+  </div>
+
+  <div class="field">
+    <label>Bottom‑Left (x, y)</label>
+    <input id="coordBL" readonly />
+  </div>
+
+  <div class="field">
+    <label>Bottom‑Right (x, y)</label>
+    <input id="coordBR" readonly />
+  </div>
+
+  <div class="field">
+    <label>Width</label>
+    <input id="rectWidth" readonly />
+  </div>
+
+  <div class="field">
+    <label>Height</label>
+    <input id="rectHeight" readonly />
+  </div>
+
+  <div class="field">
+    <label>Name</label>
+    <input id="rectName" placeholder="Enter name" />
+  </div>
+
+  <div class="field">
+    <label>Comment</label>
+    <textarea id="rectComment" placeholder="Add comment"></textarea>
+  </div>
+</aside>
+
 </div>
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<script src="script.js"></script>
 <script src="script.js"></script>
 </body>
 </html>

@@ -13,6 +13,17 @@ document.querySelectorAll(".nav-btn").forEach(btn => {
 const selectTool = document.getElementById("selectTool");
 const canvas = document.getElementById("canvas");
 const info = document.getElementById("info");
+const detailsPane = document.getElementById("detailsPane");
+const previewCanvas = document.getElementById("previewCanvas");
+const previewCtx = previewCanvas.getContext("2d");
+
+const coordTL = document.getElementById("coordTL");
+const coordTR = document.getElementById("coordTR");
+const coordBL = document.getElementById("coordBL");
+const coordBR = document.getElementById("coordBR");
+const rectWidthField = document.getElementById("rectWidth");
+const rectHeightField = document.getElementById("rectHeight");
+
 
 let selectionEnabled = true;
 let selecting = false;
@@ -29,6 +40,12 @@ selectTool.addEventListener("click", () => {
 canvas.addEventListener("mousedown", (e) => {
   if (!selectionEnabled) return;
 
+  // ✅ Remove old selection if it exists
+  if (box) {
+    box.remove();
+    box = null;
+  }
+
   selecting = true;
   startX = e.offsetX;
   startY = e.offsetY;
@@ -37,6 +54,7 @@ canvas.addEventListener("mousedown", (e) => {
   box.className = "selection-box";
   box.style.left = `${startX}px`;
   box.style.top = `${startY}px`;
+
   canvas.appendChild(box);
 });
 
@@ -56,5 +74,54 @@ canvas.addEventListener("mousemove", (e) => {
 });
 
 window.addEventListener("mouseup", () => {
+  if (!selecting || !box) return;
+
   selecting = false;
+
+  const rect = box.getBoundingClientRect();
+  const canvasRect = canvas.getBoundingClientRect();
+
+  const x1 = rect.left - canvasRect.left;
+  const y1 = rect.top - canvasRect.top;
+  const x2 = x1 + rect.width;
+  const y2 = y1 + rect.height;
+
+  // Coordinates
+  coordTL.value = `(${Math.round(x1)}, ${Math.round(y1)})`;
+  coordTR.value = `(${Math.round(x2)}, ${Math.round(y1)})`;
+  coordBL.value = `(${Math.round(x1)}, ${Math.round(y2)})`;
+  coordBR.value = `(${Math.round(x2)}, ${Math.round(y2)})`;
+
+  rectWidthField.value = Math.round(rect.width);
+  rectHeightField.value = Math.round(rect.height);
+
+  // Show details pane
+  detailsPane.classList.add("active");
+
+  // Preview (draw portion to canvas)
+  previewCanvas.width = rect.width;
+  previewCanvas.height = rect.height;
+
+  const fullCanvasImage = canvas.cloneNode(true);
+  previewCtx.clearRect(0, 0, previewCanvas.width, previewCanvas.height);
+
+	html2canvas(canvas).then(fullCanvas => {
+	  const scale = 1;
+
+	  previewCanvas.width = rect.width;
+	  previewCanvas.height = rect.height;
+
+	  previewCtx.drawImage(
+		fullCanvas,
+		x1 * scale,
+		y1 * scale,
+		rect.width * scale,
+		rect.height * scale,
+		0,
+		0,
+		rect.width,
+		rect.height
+	  );
+	});
+
 });

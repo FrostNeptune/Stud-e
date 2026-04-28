@@ -1,36 +1,96 @@
 * {
   box-sizing: border-box;
-  font-family: Arial, sans-serif;
+  font Arial, sans-serif;
 }
 
 body {
   margin: 0;
-  background-color: #f4f6f8;
+  background: #f4f6f8;
 }
 
-.header {
-  background-color: #1e293b;
+/* App layout */
+.app {
+  display: flex;
+  height: 100vh;
+}
+
+/* Sidebar */
+.sidebar {
+  width: 220px;
+  background: #1e293b;
   color: white;
-  text-align: center;
-  padding: 20px;
+  padding: 16px;
 }
 
-.container {
+.logo {
+  margin-bottom: 20px;
+}
+
+.nav-btn {
+  display: block;
+  width: 100%;
+  margin-bottom: 8px;
+  padding: 10px;
+  background: none;
+  border: none;
+  color: white;
+  text-align: left;
+  cursor: pointer;
+}
+
+.nav-btn.active {
+  background: #334155;
+  border-radius: 4px;
+}
+
+/* Main area */
+.main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Control bar */
+.control-bar {
+  background: white;
+  padding: 10px 16px;
+  border-bottom: 1px solid #ddd;
+  display: flex;
+  gap: 16px;
+  align-items: center;
+}
+
+/* Tabs */
+.tab {
+  display: none;
   padding: 20px;
-  max-width: 900px;
-  margin: auto;
+  overflow: auto;
+}
+
+.tab.active {
+  display: block;
+}
+
+/* Workspace */
+.canvas {
+  background: #fff;
+  min-height: 400px;
+  padding: 20px;
+  position: relative;
 }
 
 .card {
-  background: white;
-  padding: 15px;
-  margin-bottom: 20px;
-  border-radius: 6px;
+  padding: 16px;
   border: 1px solid #ddd;
+  margin-bottom: 12px;
+  background: #f9fafb;
 }
 
-.footer {
-  text-align: center;
-  padding: 10px;
-  background: #e5e7eb;
+/* Selection overlay */
+.selection-box {
+  position: absolute;
+  border: 2px dashed #2563eb;
+  background: rgba(37, 99, 235, 0.15);
+  pointer-events: none;
 }
+``

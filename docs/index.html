@@ -1,38 +1,61 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>My Knowledge Board</title>
-  <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <title>Stud-e</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
-  <header class="header">
-    <h1>My Knowledge</h1>
-    <p>A simple website to grow into something powerful</p>
-  </header>
+<div class="app">
 
-  <main class="container">
-    <section class="card">
-      <h2>About This Site</h2>
-      <p>This is a simple static website built without any paid domain.</p>
+  <!-- Left Sidebar -->
+  <aside class="sidebar">
+    <h2 class="logo">Stud‑e</h2>
+    <nav>
+      <button class="nav-btn active" data-tab="dashboard">Dashboard</button>
+      <button class="nav-btn" data-tab="workspace">Workspace</button>
+      <button class="nav-btn" data-tab="about">About</button>
+    </nav>
+  </aside>
+
+  <!-- Main Content -->
+  <main class="main">
+
+    <!-- Control Bar -->
+    <div class="control-bar">
+      <label>
+        <input type="checkbox" id="selectToggle" />
+        Selection Mode
+      </label>
+      <button id="clearSelection">Clear</button>
+      <span id="info"></span>
+    </div>
+
+    <!-- Tabs -->
+    <section class="tab active" id="dashboard">
+      <h1>Dashboard</h1>
+      <p>Welcome. Use the Workspace tab to interact with the page.</p>
     </section>
 
-    <section class="card">
-      <h2>Ideas</h2>
-      <p>Later I will add the ability to select areas and annotate them.</p>
+    <section class="tab" id="workspace">
+      <h1>Workspace</h1>
+
+      <div class="canvas" id="canvas">
+        <div class="card">Sample Content Box</div>
+        <div class="card">Another Element</div>
+        <div class="card">This area can be selected</div>
+      </div>
     </section>
 
-    <section class="card">
-      <h2>Notes</h2>
-      <p>This section can hold notes or explanations.</p>
+    <section class="tab" id="about">
+      <h1>About</h1>
+      <p>This tool is a foundation for visual selection and annotation.</p>
     </section>
+
   </main>
+</div>
 
-  <footer class="footer">
-    <p>© 2026 My Website</p>
-  </footer>
-
-  <script src="script.js"></script>
+<script src="script.js"></script>
 </body>
 </html>
